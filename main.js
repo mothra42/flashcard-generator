@@ -71,9 +71,8 @@ function createCards()
 		});
 }
 
-createCards();
-
-//I'm aware this breaks because of asynchronus issues. See my note in BasicCard.js.
+//I ended up using callbacks, but I'm curous how I could use promises to accomplish the same task.
+//I found it troublesome to use promises between two files. 
 function study(i)
 {
 	if(i === 10)
@@ -82,17 +81,6 @@ function study(i)
 	}
 	cards[i].playCard(study,i);
 }
+createCards();
 
-//alternate study function
-// function study(i)
-// {
-// 	if(i === 2)
-// 	{
-// 		return console.log("you're done studying");
-// 	}
-// 	cards[i].playCard.then(function(full)
-// 	{
-// 		study(++i);
-// 	});
-// }
 module.exports = study;
